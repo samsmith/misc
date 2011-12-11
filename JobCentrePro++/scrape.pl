@@ -22,7 +22,6 @@ my $results= $ua->post_form('https://jobs.civilservice.gov.uk/company/nghr/jobs.
 
 
 while ($results =~ m#"(https://jobs[^"]+SID[^"]+)"#mcig) { # be lazy
-	#print $1;
 	foreach my $jobpage ($ua->get($1)->res->dom) {
 		my %this_job;
 
@@ -36,9 +35,7 @@ while ($results =~ m#"(https://jobs[^"]+SID[^"]+)"#mcig) { # be lazy
 		}
 		push @jobs, \%this_job;
 	}
-	last;
-
-	#die;
+	#last;
 }
 
 print encode_json \@jobs;
