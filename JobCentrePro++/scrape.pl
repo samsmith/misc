@@ -50,8 +50,9 @@ while ($results =~ m#"(https://jobs[^"]+SID[^"]+)"#mcig) { # be lazy
 				$this_job{$field->find('.field_title')->[0]->text}=$field->find('.field_value')->[0]->all_text;
 			}
 		}
-		($this_job{'link_person_spec'})= $fetch->content =~ m# href="([^"])">Person Specification#i;
+		($this_job{'link_person_spec'})= $fetch->content=~ m# href="([^"])">Person Specification#i;
 
+#warn $fetch->content->text;
 		$this_job{'Person Specification Link'}= "http://findGovJobs.ne.disruptiveproactivity.com/specfiles/$this_job{'site_ref'}-person.doc";
 		my $jobspec_file= "$basedir/specfiles/$this_job{'site_ref'}-person.doc";
 
