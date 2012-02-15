@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /home/sams/work/directionless
+./bin/fetch.pl local_authority_service_details.csv pages/
+./bin/process.pl local_authority_service_details.csv pages/
