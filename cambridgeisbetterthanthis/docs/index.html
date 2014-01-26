@@ -1,0 +1,81 @@
+<head>
+<link rel="stylesheet" type="text/css" href="css/quizymemorygame.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" /></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js" /></script>
+<script src="js/jquery.flip.min.js" /></script>
+<script src="js/jquery.quizymemorygame.js" /></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+
+</body>
+
+<div style="padding-left: 5em;">
+<h2> Can you find the pairs of faces? </h2>
+<noscript>Sorry, this game requires javascript</noscript>
+
+<p>
+	Highlighting the diversity of Councillors in 2 Cambridge wards.
+</p>
+
+<div id="my-memorygame" class="quizy-memorygame">
+<ul id="councillors">
+  <li class="match1"><img height="155" src="img/116.jpg" /></li>
+  <li class="match1"><img height="155" src="img/116.jpg" /></li>
+  <li class="match2"><img height="155" src="img/128.jpg" /></li>
+  <li class="match2"><img height="155" src="img/128.jpg" /></li>
+  <li class="match3"><img height="155" src="img/675.jpg" /></li>
+  <li class="match3"><img height="155" src="img/675.jpg" /></li>
+  <li class="match4"><img height="155" src="img/713.jpg" /></li>
+  <li class="match4"><img height="155" src="img/713.jpg" /></li>
+  <li class="match5"><img height="155" src="img/125.jpg" /></li>
+  <li class="match5"><img height="155" src="img/125.jpg" /></li>
+  <li class="match6"><img height="155" src="img/136.jpg" /></li>
+  <li class="match6"><img height="155" src="img/136.jpg" /></li>
+</ul>
+</div>
+
+<p>
+	That was 6 councillors from 2 wards. I'm sure Cambridge Labour can do better. <a
+	href="https://twitter.com/intent/tweet?source=webclient&text=Can+you+do+better+than+this+at+finding+the+pairs:+http://www.cambridgeisbetterthanthis.com">Tweet how well you did</a>
+</p>
+<script>
+$.fn.randomize = function(selector){
+    var $elems = selector ? $(this).find(selector) : $(this).children(),
+        $parents = $elems.parent();
+
+    $parents.each(function(){
+        $(this).children(selector).sort(function(){
+            return Math.round(Math.random()) - 0.5;
+        }).remove().appendTo(this);
+    });
+
+    return this;
+};
+$('#councillors').randomize('li');
+
+$('#my-memorygame').quizyMemoryGame({itemWidth: 155, itemHeight: 155, itemsMargin:40, colCount:4, animType:'flip' , flipAnim:'tb', animSpeed:155, resultIcons:true});
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-4502695-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</div>
+
+</body>
+
+
+
